@@ -1,3 +1,3 @@
 $(document).ready(function(){
-   $("#id_product_category").load("/catalog/ajax/all_categories/");
+//   $("#id_product_category").load("/catalog/ajax/all_categories/");
 });

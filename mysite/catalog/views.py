@@ -91,5 +91,9 @@ def ajax_filter(request):
 
 
 def ajax_all_categories(request):
-    categories = sort_list()
-    return render_to_response("admin/ajax_all_categories.html", {'categories': categories})
+    try:
+        categories = sort_list()
+        model = Product.objects.get(request.GET.get('id'))
+    except Product.DoesNotExist:
+        raise Http404
+    return render_to_response("admin/ajax_all_categories.html", {'categories': categories, 'model': model})
