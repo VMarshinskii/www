@@ -1,0 +1,52 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+
+{% block title %}StarTruck - контакты{% endblock %}
+
+{% block categories %}
+{% include "top_categories.html" %}
+{% endblock %}
+
+
+{% block content %}
+    <article>
+        <h1 class="block-header">Контакты</h1>
+
+        {{ model.text|safe }}
+
+        <div style="margin: 15px 0">{{ model.map|safe }}</div>
+
+        <h2 style="margin-top:15px;">Форма обратной связи</h2>
+
+        {% if errors %}
+            <ul>
+                {% for error in errors %}
+                    <li style="color: red;">{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <form action="/contact/mail/" method="post">
+
+            <table class="contact_form">
+                <tr>
+                    <td><label>Имя</label></td>
+                    <td><input name="name" type="text" value="{{ form.name }}"></td>
+                </tr>
+                <tr>
+                    <td><label>Е-mail</label></td>
+                    <td><input name="email" type="text" value="{{ form.email }}"></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top;"><label>Сообщение</label></td>
+                    <td><textarea name="message">{{ form.message }}</textarea></td>
+                </tr>
+                <tr>
+                    <td>{% csrf_token %}</td>
+                    <td><input style="float:right" class="contact_form_bottom" type="submit" value="Отправить"></td>
+                </tr>
+            </table>
+
+        </form>
+    </article>
+{% endblock %}

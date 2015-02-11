@@ -1,0 +1,89 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+
+{% block title %}StarTruck - {{ product.title }}{% endblock %}
+
+{% block categories %}
+    {% include "top_categories.html" %}
+{% endblock %}
+
+{% block content %}
+<article>
+    <h1 class="block-header">{{ product.title }}</h1>
+    <div class="cart-left">
+        <div class="first-block-of-cart"><p>Технические Характеристики: <a href="#">Спецификация</a></p></div>
+        <p>Седельный тягач 2011 года выпуска, EURO5 на стоянке компании Авто-Норд Санкт-Петербург Мурманское шоссе 24 км, Разметелево.
+        <br>Все технические характеристики соответствуют ПТС. Цена, фото и описание так же, относятся к данной грузовой техники.</p>
+        <a href="#" class="print">Распечатать</a>
+        <div></div>
+        <table class="cart-table">
+            <tr>
+                <td>Цена</td>
+                <td>{{ product.price }} руб</td>
+            </tr>
+            <tr>
+                <td>Марка</td>
+                <td>VOLVO</td>
+            </tr>
+            <tr>
+                <td>Год выпуска</td>
+                <td>2011</td>
+            </tr>
+            <tr>
+                <td>Тип кузова</td>
+                <td>Седельный тягач</td>
+            </tr>
+            <tr>
+                <td>Эко/Класс</td>
+                <td>EURO5</td>
+            </tr>
+            <tr>
+                <td>Трансмиссия</td>
+                <td>Автомат</td>
+            </tr>
+            <tr>
+                <td>Цвет</td>
+                <td>Серый</td>
+            </tr>
+            <tr>
+                <td>Мощность (л.с.)</td>
+                <td>460</td>
+            </tr>
+            <tr>
+                <td>Объем дв. (см3)</td>
+                <td>12777</td>
+            </tr>
+            <tr>
+                <td>Тара/Вес (кг)</td>
+                <td>8654 / 20000</td>
+            </tr>
+            <tr>
+                <td>Объем дв. (см3)</td>
+                <td>пневмо-полурессорная</td>
+            </tr>
+            <tr>
+                <td>Тара / Вес (кг)</td>
+                <td>WABCO, EBS, ABS</td>
+            </tr>
+        </table>
+    </div>
+    <div class="cart-right">
+        <!--
+        <div class="cart-full-img">
+            <img src="img/cart-main.png" alt="">
+        </div>
+        -->
+        <div id="basiccc" class="cart-full-img">
+            <div class="cart-price">
+                Цена: <span>3 100 000 P</span>, 2010
+            </div>
+            <ul>
+                {% for img in images %}
+                    <li><img src="http://127.0.0.1:8000/{{ img.image }}" alt=""></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div id="cart-small"></div>
+    </div>
+</article>
+{% endblock %}

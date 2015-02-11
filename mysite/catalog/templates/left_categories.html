@@ -1,0 +1,14 @@
+{% load staticfiles %}
+<div class="item www-cat">
+    <div class="block-header"><img src="/static/images/{{ root_categ.icon }}" style="margin-right: 10px" />{{ root_categ.title }}</div>
+    {% if left_categories|length > 0 %}
+    <div class="search-wrapper">
+        <ul>
+            {% for left_categ in left_categories %}
+                <li><a href="/catalog/{{ left_categ.url }}">{{ left_categ.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    <p>{{ root_categ.text|safe }}</p>
+</div>

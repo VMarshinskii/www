@@ -1,0 +1,15 @@
+<div class="item">
+    <div class="block-header">Результаты поиска</div>
+
+    <div class="items">
+        {% for product in products %}
+        <div class="shop-item">
+            <a href="/catalog/{{ product.product_category.url }}/{{ product.id }}">
+                <div class="shop-img"><img src="/{{ product.images }}" alt="{{ product.title }}"></div>
+                <div class="shop-info">{{ product.title }}</div>
+                <div class="shop-price">Цена: <span>{{ product.price }} P</span>, 2010</div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>

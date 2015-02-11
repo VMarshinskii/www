@@ -1,0 +1,34 @@
+<div class="item">
+    <div class="block-header">Поиск техники</div>
+    <div class="search-wrapper">
+        <form>
+            <div class="section ajax_form_type">
+                <select name="" id="ajax_form_type">
+                    <option value="-1">Тип техники</option>
+                    {% for categ in types %}
+                    <option value="{{ categ.id }}">{{ categ }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="section">
+                <select name="" id="ajax_form_year">
+                    <option value="-1">Год выпуска</option>
+                    {% for year in years %}
+                    <option value="{{ year }}">{{ year }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="section">
+                <select name="" id="ajax_form_model">
+                    <option value="-1">Модель</option>
+                    {% for model in models %}
+                    <option value="{{ model }}">{{ model }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="block-header">Доступность</div>
+            <input type="checkbox" class="styled"/><label for="checkbox">На стоянке</label>
+            <input type="checkbox" class="styled"/><label for="checkbox">В пути</label>
+        </form>
+    </div>
+</div>

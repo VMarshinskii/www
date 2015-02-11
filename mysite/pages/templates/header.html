@@ -1,0 +1,20 @@
+{% load staticfiles %}
+{% load top_menu %}
+<div id="top-header">
+    <div class="inside-block">
+        <div class="logo"><img src="{% static "images/logo.png" %}" alt=""></div>
+        <span class="number">{{ meta_model.phone_home }}</span>
+        <span class="mail"><a href="mailto:{{ meta_model.email }}">{{ meta_model.email }}</a></span>
+    </div>
+</div>
+<div id="header-menu">
+    <div class="inside-block">
+        {% show_prod %}
+        <div class="soc-links">
+            <a target="_blank" href="{{ meta_model.odnoklassniki }}"><img src="{% static "images/c-1.png" %}" alt=""></a>
+            <a target="_blank" href="{{ meta_model.twitter }}"><img src="{% static "images/c-2.png" %}" alt=""></a>
+            <a target="_blank" href="{{ meta_model.facebook }}"><img src="{% static "images/c-3.png" %}" alt=""></a>
+            <a target="_blank" href="{{ meta_model.vk }}"><img src="{% static "images/c-4.png" %}" alt=""></a>
+        </div>
+    </div>
+</div>

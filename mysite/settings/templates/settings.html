@@ -1,0 +1,195 @@
+{% extends "main_admin.html" %}
+{% load admin_menu %}
+{% block content-center %}
+  <div id="suit-center" class="suit-column">
+
+      {% block breadcrumbs %}
+        <ul class="breadcrumb">
+          <li>
+              <a href="/admin/">Начало</a>
+              <span class="divider">&raquo;</span>
+          </li>
+          <li class="active"><a href="/admin/settings/">Настройки</a></li>
+        </ul>
+      {% endblock %}
+
+    {% block messages %}
+      {% if message == "yes" %}
+        <div class="alert alert-success">
+            <button class="close" data-dismiss="alert">×</button>
+            Настройки успешно изменены.
+         </div>
+      {% endif %}
+    {% endblock messages %}
+
+    <!-- Content -->
+    <div id="content" class="colM row-fluid">
+
+        <div id="content-main" class="inner-two-columns">
+
+            <form enctype="multipart/form-data" action="/admin/settings/" method="post" id="settings_form" class="form-horizontal">
+
+                <div class="inner-right-column">
+
+                    <div class="box save-box">
+                        <div class="submit-row clearfix">
+                            <button type="submit" class="btn btn-high btn-info" name="_save">Сохранить</button>
+                        </div>
+                    </div>
+                    </div>
+
+                <div class="inner-center-column">
+                    {% csrf_token %}
+                    <div class="tab-content tab-content-main">
+                        <fieldset class="module aligned first ">
+                            <div class="control-group form-row field-title ">
+                                <div>
+                                    <div class="control-label">
+                                        <label class="required" for="id_title">Название сайта:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input class="vTextField" id="id_title" maxlength="200" name="title" type="text" value="{{ model.title }}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-group form-row field-description ">
+                                <div>
+                                    <div class="control-label">
+                                        <label class="required" for="id_description">Описание:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input class="vTextField" id="id_description" maxlength="200" name="description" type="text" value="{{ model.description }}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-group form-row">
+                                <div>
+                                    <div class="control-label">
+                                        <label class="required">Телефон (в шапке):</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input class="vTextField" id="id_phone" maxlength="200" name="phone" type="text" value="{{ model.phone_home }}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-group form-row">
+                                <div>
+                                    <div class="control-label">
+                                        <label class="required">E-mail:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input class="vTextField" id="id_mail" maxlength="200" name="email" type="text" value="{{ model.email }}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-group form-row">
+                                <div>
+                                    <div class="control-label">
+                                        <label class="required">Контакты:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input class="vTextField" id="id_contacts" maxlength="200" name="contacts" type="text" value="{{ model.contacts }}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-group form-row">
+                                <div>
+                                    <div class="control-label">
+                                        <label class="required">Одноклассники:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input class="vTextField" id="id_odnoklassniki" maxlength="200" name="odnoklassniki" type="text" value="{{ model.odnoklassniki }}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-group form-row">
+                                <div>
+                                    <div class="control-label">
+                                        <label class="required">Twitter:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input class="vTextField" id="id_twitter" maxlength="200" name="twitter" type="text" value="{{ model.twitter }}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-group form-row">
+                                <div>
+                                    <div class="control-label">
+                                        <label class="required">Facebook:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input class="vTextField" id="id_facebook" maxlength="200" name="facebook" type="text" value="{{ model.facebook }}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-group form-row">
+                                <div>
+                                    <div class="control-label">
+                                        <label class="required">Вконтакте:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input class="vTextField" id="id_vk" maxlength="200" name="vk" type="text" value="{{ model.vk }}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-group form-row field-text ">
+
+                                  <div><div class="control-label"><label class="required" for="id_text">Текст:</label></div><div class="controls">
+                                      <textarea cols="40" id="id_text" name="text" rows="10">
+                                        {{ model.text }}
+                                      </textarea>
+                                      <script type="text/javascript">
+                                            jQuery(document).ready(function(jQuery){
+                                                var $field = jQuery("#id_text");
+                                                options = {"lang": "ru", "fileUpload": "/redactor/upload/file/", "plugins": ["fontcolor", "fontsize", "fontfamily", "textdirection"], "imageUpload": "/redactor/upload/image/", "buttonSource": "true"};
+                                                options.imageUploadErrorCallback = function(json){
+                                                    alert(json.error);
+                                                };
+                                                $field.redactor(options);
+                                            });
+                                         </script></div></div>
+
+
+                              </div>
+
+                        </fieldset>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+    <!-- END Content -->
+  </div>
+  <style>
+      #settings_form input[type="text"]{
+        width: 500px;
+      }
+  </style>
+{% endblock %}
+
+
+{% block content-left %}
+  {% if not is_popup %}
+    <div id="suit-left" class="suit-column">
+    <form class="form-search nav-quick-search" autocomplete="off" action="/admin/auth/user/" method="GET">
+      <input type="text" name="q" class="input-medium search-query" id="quick-search">
+      <i class="input-icon icon-search"></i>
+      <input type="submit" class="submit" value="">
+    </form>
+
+     {% admin_menu %}
+
+    </div>
+  {% endif %}
+{% endblock %}

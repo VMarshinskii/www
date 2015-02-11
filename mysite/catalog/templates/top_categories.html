@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<div id="categories2">
+    <div class="inside-block">
+        <figure {% if root_categ.title == "Тягачи" %} class="current" {% endif %}>
+            <a href="/catalog/tyagachi/">
+                <div class="img-wrapper"><img src="{% static "images/img1-c.png" %}" alt=""></div>
+                <figcaption>Тягачи</figcaption>
+            </a>
+        </figure>
+        <figure {% if root_categ.title == "Полуприцепы" %} class="current" {% endif %}>
+            <a href="/catalog/polupricepy/">
+                <div class="img-wrapper"><img src="{% static "images/img2-c.png" %}" alt=""></div>
+                <figcaption>Полуприцепы</figcaption>
+            </a>
+        </figure>
+        <figure {% if root_categ.title == "Грузовики" %} class="current" {% endif %}>
+            <a href="/catalog/gruzoviki/">
+                <div class="img-wrapper"><img src="{% static "images/img3-c.png" %}" alt=""></div>
+                <figcaption>Грузовики</figcaption>
+            </a>
+        </figure>
+        <figure {% if root_categ.title == "Строительная техника" %} class="current" {% endif %}>
+            <a href="/catalog/stroitelnaya_tehnika/">
+                <div class="img-wrapper"><img src="{% static "images/img4-c.png" %}" alt=""></div>
+                <figcaption>Строительная техника</figcaption>
+            </a>
+        </figure>
+    </div>
+</div>

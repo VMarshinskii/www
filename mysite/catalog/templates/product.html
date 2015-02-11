@@ -1,0 +1,199 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+
+{% block title %}StarTruck - {{ product.title }}{% endblock %}
+{% block description %}{{ product.description }}{% endblock %}
+{% block keywords %}{{ product.keyword }}{% endblock %}
+
+{% block categories %}
+    {% include "top_categories.html" %}
+{% endblock %}
+
+
+{% block popup %}
+<div class="popup-box" id="popup-box-1">
+    <div class="close">X</div>
+    <div class="top">
+        <h2>Заказ:</h2>
+        <p style="margin-top:10px">Наименование: {{ product.title }}</p>
+    </div>
+    <div class="bottom ajax_popup">
+        <form action="/contact/mail/" method="post">
+
+            <p data-name="0" data-phone="0" class="popup_error">Заполните обязательные поля</p>
+
+            <table class="popup_form">
+                <tr>
+                    <td><label>Имя <span style="color:#ff0000">*</span></label></td>
+                    <td><input id="popup_form_name" type="text" required></td>
+                </tr>
+                <tr>
+                    <td><label>Телефон <span style="color:#ff0000">*</span></label></td>
+                    <td><input id="popup_form_phone" type="text" required></td>
+                </tr>
+                <tr>
+                    <td><label>Е-mail</label></td>
+                    <td><input id="popup_form_email" type="text"></td>
+                </tr>
+                <tr>
+                    <td>{% csrf_token %}</td>
+                    <td><div data-id="{{ product.id }}" class="bottom_popup">Отправить <img src="{% static "images/login171.png" %}" alt=""/></div></td>
+                </tr>
+            </table>
+
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div class="isCart">
+    <article>
+    <h1 class="block-header">{{ product.title }}</h1>
+    <div class="cart-left">
+        <div class="first-block-of-cart"><p>Технические Характеристики:</p></div>
+        {{ product.description|safe }}
+        <a href="#" class="print">Распечатать</a>
+        <div></div>
+        <table class="cart-table">
+            {% if product.price %}
+            <tr>
+                <td>Цена</td>
+                <td>{{ product.price }} руб</td>
+            </tr>
+            {% endif %}
+            {% if product.brand %}
+            <tr>
+                <td>Марка</td>
+                <td>{{ product.brand }}</td>
+            </tr>
+            {% endif %}
+            {% if product.year %}
+            <tr>
+                <td>Год выпуска</td>
+                <td>{{ product.year }}</td>
+            </tr>
+            {% endif %}
+            {% if product.type_body %}
+            <tr>
+                <td>Тип кузова</td>
+                <td>{{ product.type_body }}</td>
+            </tr>
+            {% endif %}
+            {% if product.eko_class %}
+            <tr>
+                <td>Эко/Класс</td>
+                <td>{{ product.eko_class }}</td>
+            </tr>
+            {% endif %}
+            {% if product.transmission %}
+            <tr>
+                <td>Трансмиссия</td>
+                <td>{{ product.transmission }}</td>
+            </tr>
+            {% endif %}
+            {% if product.color %}
+            <tr>
+                <td>Цвет</td>
+                <td>{{ product.color }}</td>
+            </tr>
+            {% endif %}
+            {% if product.power %}
+            <tr>
+                <td>Мощность (л.с.)</td>
+                <td>{{ product.power }}</td>
+            </tr>
+            {% endif %}
+            {% if product.engine %}
+            <tr>
+                <td>Объем дв. (см3)</td>
+                <td>{{ product.engine }}</td>
+            </tr>
+            {% endif %}
+            {% if product.weight %}
+            <tr>
+                <td>Тара/Вес (кг)</td>
+                <td>{{ product.weight }}</td>
+            </tr>
+            {% endif %}
+            {% if product.suspension %}
+            <tr>
+                <td>Подвеска</td>
+                <td>{{ product.suspension }}</td>
+            </tr>
+            {% endif %}
+            {% if product.brake_system %}
+            <tr>
+                <td>Тормозная система</td>
+                <td>{{ product.brake_system }}</td>
+            </tr>
+            {% endif %}
+        </table>
+    </div>
+    <div class="cart-right">
+        <!--
+        <div class="cart-full-img">
+            <img src="img/cart-main.png" alt="">
+        </div>
+        -->
+
+        <div id="basccc" class="cart-full-img sliderkit">
+            <div class="cart-price">
+                Цена: <span>{{ product.price }} P</span>, {{ product.year }}
+            </div>
+            <div class="sliderkit-panels">
+                <div class="sliderkit-panel">
+                    <a href="#" title=""><img src="/{{ product.images }}" alt="" /></a>
+                </div>
+                {% for img in images %}
+                <div class="sliderkit-panel">
+                    <a href="#" title=""><img src="/{{ img.image }}" alt="" /></a>
+                </div>
+                {% endfor %}
+            </div>
+            <div id="ui0" class="sliderkit-nav">
+                <div class="sliderkit-nav-clip">
+                    <ul>
+                        <li><a href="#" rel="nofollow" title=""><img src="/{{ product.images }}" alt="[Alternative text]" /></a></li>
+                        {% for img in images %}
+                        <li><a href="#" rel="nofollow" title=""><img src="/{{ img.image }}" alt="[Alternative text]" /></a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="sliderkit-btn sliderkit-nav-btn sliderkit-nav-prev"><a class="left" rel="nofollow" href="#" title="Scroll the carousel to the left"></a></div>
+                <div class="sliderkit-btn sliderkit-nav-btn sliderkit-nav-next"><a class="right" rel="nofollow" href="#" title="Scroll the carousel to the right"></a></div>
+            </div>
+        </div>
+        <a class="popup-link-1" href="">Заказать</a>
+        <div id="cart-small"></div>
+    </div>
+    </article>
+</div>
+{% endblock %}
+
+
+{% block script_top %}
+<script type="text/javascript" src="{% static "js/jquery.sliderkit.1.9.2.pack.js" %}"></script>
+<script type="text/javascript" src="{% static "js/jquery.leanModal.min.js" %}"></script>
+{% endblock %}
+
+
+{% block script_bottom %}
+<script type="text/javascript" src="{% static "js/popup.js" %}"></script>
+<script type="text/javascript">
+    $(window).load(function(){ //$(window).load() must be used instead of $(document).ready() because of Webkit compatibility
+
+        /*---------------------------------
+         *	Counter add-on, example 01
+         *---------------------------------*/
+        $(".cart-full-img").sliderkit({
+            mousewheel:true,
+            shownavitems:3,
+            panelbtnshover:true,
+            auto:false,
+            navscrollatend:false
+        });
+    });
+</script>
+{% endblock %}

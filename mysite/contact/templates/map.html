@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+
+{% block title %}StarTruck - Мы на карте{% endblock %}
+
+{% block categories %}
+{% include "top_categories.html" %}
+{% endblock %}
+
+
+{% block content %}
+    <article>
+    <h1 class="block-header">Мы на карте</h1>
+    <script type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=mh1fIzSxp7p_etV8zheN304h6rq7xKHA&width=700&height=450"></script>
+    </article>
+{% endblock %}

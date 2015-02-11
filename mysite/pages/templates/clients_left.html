@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<div class="block-header">Наши клиенты</div>
+<div class="carousel-container">
+    <div id="carousel">
+        {% for client in objects %}
+        <div class="carousel-feature">
+            <a href="/clients/">
+                <span class="padcar">
+                    <img class="carousel-image" alt="{{ client.title }}" src="/{{ client.image }}">
+                </span>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="our-clientss">
+    <a href="/clients/" class="btn-block">все фотографии</a>
+</div>

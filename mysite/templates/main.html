@@ -1,0 +1,117 @@
+{% load staticfiles %}
+{% load search_form %}
+{% load popular %}
+{% load clients_left %}
+{% load header %}
+{% load footer %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>{% block title %}StarTruck {% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="Keywords" content="{% block keywords %}{% endblock %}">
+
+	<link rel="stylesheet" href="{% static "css/style.css" %}">
+	<link rel="stylesheet" href="{% static "css/selectbox.css" %}">
+	<link rel="stylesheet" href="{% static "css/checkbox.css" %}">
+	<link rel="stylesheet" href="{% static "css/sliderkit-core.css" %}">
+	<link rel="stylesheet" href="{% static "css/feature-carousel.css" %}">
+	<link rel="stylesheet" href="{% static "css/slider.css" %}">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,700,600,400&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	{% block popup %}<div id="window-wrap"><div id="window"></div></div>{% endblock %}
+
+	<header>
+		{% header %}
+	</header>
+
+    {% block categories %}{% endblock %}
+
+
+	<div id="page-content">
+		<div class="inside-block">
+
+			<div id="left-page-content">
+
+                {% block left_box %}
+                {% search_form %}
+                {% endblock %}
+
+				<div class="item">
+					{% popular %}
+				</div>
+			</div>
+
+			<div id="right-page-content">
+				<div class="item">
+					<div class="block-header">Свяжитесь с нами</div>
+					<div class="contacts">
+						<div class="contact-item"><p>г. Казань <br>ул. Ленина, 87</p></div>
+						<div class="contact-item"><p>+7 (123) <span class="number-red">123 45 678</span> <br>+7 (123) <span class="number-red">123 45 678</span> <br><span class="small-text">Бесплатный звонок по России</span></p></div>
+						<div class="contact-item"><p>Часы работы: <br><br><span class="ct-date">пн-пт:</span>9 - 18:00 <br><span class="ct-date">СБ:</span>9 - 15:00 <br><span class="ct-date">ВС:</span>выходной</p></div>
+						<a href="/contact/mail/" class="btn-block">написать письмо</a>
+						<a href="/contact/map/" class="btn-block">посмотреть на карте</a>
+						<div class="map"><a href="/contact/map/"><img src="{% static "images/map.jpg" %}" alt=""></a></div>
+					</div>
+				</div>
+				<div class="item">
+                    {% clients_left %}
+				</div>
+			</div>
+			<div id="center-page-content">
+            {% block content %}
+				<article>
+					<div class="item">
+						<div class="block-header">Седельные тягачи</div>
+						<div class="items">
+							<div class="shop-item">
+								<a href="#">
+									<div class="shop-img"><img src="{% static "images/shop1.jpg" %}" alt=""></div>
+									<div class="shop-info">Тягач SCANIA R 440 OPTICRUSE</div>
+									<div class="shop-price">Цена: <span>3 100 000 P</span>, 2010</div>
+								</a>
+							</div>
+							<div class="shop-item">
+								<a href="#">
+									<div class="shop-img"><img src="{% static "images/shop2.jpg" %}" alt=""></div>
+									<div class="shop-info">ТЯГАЧ VOLVO FH 460 XL I-SHIFT</div>
+									<div class="shop-price">Цена: <span>3 450 000 P</span>, 2011</div>
+								</a>
+							</div>
+							<div class="shop-item">
+								<a href="#">
+									<div class="shop-img"><img src="{% static "images/shop1.jpg" %}" alt=""></div>
+									<div class="shop-info">Тягач SCANIA R 440 OPTICRUSE</div>
+									<div class="shop-price">Цена: <span>3 100 000 P</span>, 2010</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="block-header">Седельные тягачи</div>
+					</div>
+				</article>
+            {% endblock %}
+			</div>
+
+		</div>
+		<div style="clear:both;"></div>
+	</div>
+
+
+    {% footer %}
+
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script type="text/javascript" src="{% static "js/jquery.selectbox.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery.checkbox.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery.featureCarousel.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery.slideViewerPro.1.5.js" %}"></script>
+    {% block script_top %}{% endblock %}
+	<script type="text/javascript" src="{% static "js/common.js" %}"></script>
+    {% block script_bottom %}{% endblock %}
+</body>
+</html>

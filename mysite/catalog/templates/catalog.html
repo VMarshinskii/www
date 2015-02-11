@@ -1,0 +1,59 @@
+{% load staticfiles %}
+{% block title %}StarTruck - каталог{% endblock %}
+{% block description %}{{ meta_model.description }}{% endblock %}
+{% block keywords %}{{ meta_model.keywords }}{% endblock %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+	<link rel="stylesheet" href="{% static "css/selectbox.css" %}">
+	<link rel="stylesheet" href="{% static "css/checkbox.css" %}">
+	<link rel="stylesheet" href="{% static "css/feature-carousel.css" %}">
+</head>
+<body>
+<div class="cart-right">
+    <!--
+    <div class="cart-full-img">
+        <img src="img/cart-main.png" alt="">
+    </div>
+    -->
+    <div id="basiccc" class="cart-full-img">
+        <div class="cart-price">
+            Цена: <span>3 100 000 P</span>, 2010
+        </div>
+        <ul>
+            <li><img src="/static/images/cart-main.png" alt=""></li>
+            <li><img src="/static/images/cart-main.png" alt=""></li>
+            <li><img src="/static/images/cart-main.png" alt=""></li>
+            <li><img src="/static/images/cart-main.png" alt=""></li>
+            <li><img src="/static/images/cart-main.png" alt=""></li>
+            <li><img src="/static/images/cart-main.png" alt=""></li>
+            <li><img src="/static/images/cart-main.png" alt=""></li>
+            <li><img src="/static/images/cart-main.png" alt=""></li>
+        </ul>
+    </div>
+    <div id="cart-small"></div>
+</div>
+<script>
+    $(document).ready(function() {
+        $("#basiccc").slideViewerPro({
+            thumbs: 3,
+            thumbsActiveBorderColor: "#24aa98",
+            buttonsWidth: 1,
+            thumbsRightMargin: 8,
+            thumbsPercentReduction: 30
+        });
+        $(".cart-full-img").removeAttr("style");
+        $(".cart-right > div").removeAttr("style");
+    });
+</script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script type="text/javascript" src="{% static "js/jquery.selectbox.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery.checkbox.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery.featureCarousel.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery.slideViewerPro.1.5.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/common.js" %}"></script>
+</body>
+</html>

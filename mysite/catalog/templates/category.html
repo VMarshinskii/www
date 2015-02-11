@@ -1,0 +1,52 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+
+{% block title %}StarTruck - {{ categ.title }}{% endblock %}
+{% block description %}{{ categ.description }}{% endblock %}
+{% block keywords %}{{ categ.keyword }}{% endblock %}
+
+{% block categories %}
+{% include "top_categories.html" %}
+{% endblock %}
+
+{% block left_box %}
+{% include "left_categories.html" %}
+{% endblock %}
+
+
+{% block content %}
+<div id="pagination">
+    <a href="/">Главная</a>
+
+    {% for cat in path_categ reversed %}
+        <span>></span>
+        <a href="/catalog/{{ cat.url }}">{{ cat.title }}</a>
+    {% endfor %}
+</div>
+<article>
+    <div class="item">
+        {% if path_categ|length > 1 %}
+            <h1>{{ path_categ|last }}, {{ path_categ|first }}</h1>
+        {% else %}
+            <h1>{{ path_categ|last }}</h1>
+        {% endif %}
+
+        <!--<ul class="sort">
+            <li><a href="#">Тягачи VOLVO</a></li>
+            <li><a href="#">Тягачи VOLVO</a></li>
+            <li><a href="#">Тягачи VOLVO</a></li>
+        </ul>-->
+        <div class="items">
+            {% for product in products %}
+            <div class="shop-item">
+                <a href="/catalog/{{ categ.url }}/{{ product.id }}">
+                    <div class="shop-img"><img src="/{{ product.images }}" alt="{{ product.title }}"></div>
+                    <div class="shop-info">{{ product.title }}</div>
+                    <div class="shop-price">Цена: <span>{{ product.price }} P</span>, {{ product.year }}</div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</article>
+{% endblock %}

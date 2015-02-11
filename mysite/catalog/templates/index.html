@@ -1,0 +1,61 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ meta_model.title }}{% endblock %}
+{% block description %}{{ meta_model.description }}{% endblock %}
+{% block keywords %}{{ meta_model.keywords }}{% endblock %}
+
+{% block categories %}
+<div id="categories">
+    <div class="inside-block">
+        <figure>
+            <a href="/catalog/tyagachi/">
+                <img src="{% static "images/img1.png" %}" alt="">
+                <figcaption>Тягачи</figcaption>
+            </a>
+        </figure>
+        <figure>
+            <a href="/catalog/polupricepy/">
+                <img src="{% static "images/img2.png" %}" alt="">
+                <figcaption>Полуприцепы</figcaption>
+            </a>
+        </figure>
+        <figure>
+            <a href="/catalog/gruzoviki/">
+                <img src="{% static "images/img3.png" %}" alt="">
+                <figcaption>Грузовики</figcaption>
+            </a>
+        </figure>
+        <figure>
+            <a href="/catalog/stroitelnaya_tehnika/">
+                <img src="{% static "images/img4.png" %}" alt="">
+                <figcaption>Строительная техника</figcaption>
+            </a>
+        </figure>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+    <article>
+        {% for key,value in products.items %}
+        {% if value %}
+        <div class="item">
+            <div class="block-header">{{ key.title }}</div>
+            <div class="items">
+                {% for product in value %}
+                <div class="shop-item">
+                    <a href="/catalog/{{ key.url }}/{{ product.id }}/">
+                        <div class="shop-img"><img src="/{{ product.images }}" alt=""></div>
+                        <div class="shop-info">{{ product.title }}</div>
+                        <div class="shop-price">Цена: <span>{{ product.price }} P</span>, {{ product.year }}</div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </article>
+{% endblock %}
