@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     url(r'^(?P<categ_name>[\-\w]+)/(?P<product_id>\d+)/$', 'catalog.views.product'),
     url(r'^(?P<categ_name>[\-\w]+)/$', 'catalog.views.category'),
     url(r'^ajax/filter/', 'catalog.views.ajax_filter'),
+    url(r'^ajax/all_categories/', 'catalog.views.ajax_all_categories'),
 )
