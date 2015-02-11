@@ -155,10 +155,10 @@
             <div id="ui0" class="sliderkit-nav">
                 <div class="sliderkit-nav-clip">
                     <ul>
-                        <li><a href="#" rel="nofollow" title=""><img src="/{{ product.images }}" alt="[Alternative text]" /></a></li>
                         {% for img in images %}
                         <li><a href="#" rel="nofollow" title=""><img src="/{{ img.image }}" alt="[Alternative text]" /></a></li>
                         {% endfor %}
+                        <li><a href="#" rel="nofollow" title=""><img src="/{{ product.images }}" alt="[Alternative text]" /></a></li>
                     </ul>
                 </div>
                 <div class="sliderkit-btn sliderkit-nav-btn sliderkit-nav-prev"><a class="left" rel="nofollow" href="#" title="Scroll the carousel to the left"></a></div>
