@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from catalog.models import Product, Category, Image
 from settings.models import Settings
+from catalog.admin import sort_list
 from django.http import Http404, HttpResponse
 import json as simplejson
 
@@ -87,3 +88,7 @@ def ajax_filter(request):
         'year': year,
         'model': model
     })
+
+def ajax_all_categories(request):
+    categories = Category.sort_list()
+    return render_to_response("admin/ajax_all_categories.html", {'categories': categories})

@@ -1,3 +1,3 @@
 $(document).ready(function(){
-   alert("ok");
+   $("#id_product_category").html();
 });
