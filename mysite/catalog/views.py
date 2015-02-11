@@ -91,5 +91,5 @@ def ajax_filter(request):
 
 
 def ajax_all_categories(request):
-    categories = Category.sort_list()
+    categories = sort_list()
     return render_to_response("admin/ajax_all_categories.html", {'categories': categories})
