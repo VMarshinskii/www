@@ -54,7 +54,7 @@
     <div class="cart-left">
         <div class="first-block-of-cart"><p>Технические Характеристики:</p></div>
         {{ product.description|safe }}
-        <a href="#" class="print">Распечатать</a>
+        <p class="print">Распечатать</p>
         <div></div>
         <table class="cart-table">
             {% if product.price %}
@@ -197,7 +197,6 @@
 
         $(".print").click(function(){
            window.print();
-           return false;
         });
     });
 </script>
