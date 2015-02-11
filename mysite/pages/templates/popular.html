@@ -5,7 +5,7 @@
     <div class="popular-item">
         <a href="/catalog/{{ obj.product_category.url }}/{{ obj.id }}">
             <div class="img"><img src="/{{ obj.images }}" alt="{{ obj.title }}"></div>
-            <div class="name">Т{{ obj.title }}</div>
+            <div class="name">{{ obj.title }}</div>
             <hr>
             <div class="price">
                 <p>Цена: <span>{{ obj.price }} P</span><span> · {{ obj.year }}</span></p>
