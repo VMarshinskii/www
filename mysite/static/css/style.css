@@ -1120,3 +1120,61 @@ li.active a{ text-decoration:underline;}
     border: 1px solid #0C6796;
     cursor: pointer;
 }
+
+.galeryBox {
+    width: 400px;
+    margin: 50px auto;
+}
+.your-class	{
+    width: 400px;
+    margin: 50px 0 0 0;
+    position: relative;
+    border: 5px solid #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 7px rgba(0,0,0,.3);
+}
+.your-class button {
+    position: absolute;
+    top: 32px;
+    width: 30px;
+    height: 30px;
+    border-radius: 90px;
+    background: rgba(0, 0, 0, 0.20);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.your-class button:hover {
+    background: rgba(0, 0, 0, 0.15);
+}
+.slick-prev {
+    left: 0;
+}
+.slick-next {
+    right: 0;
+}
+.slick-slide {
+    margin: 5px;
+    overflow: hidden;
+    background: #0000ff;
+    height: 80px;
+    border: 2px solid #eee;
+}
+.slick-slide:hover {
+    border: 2px solid #24aa98;
+}
+.slick-slide img {
+    width: 100%;
+    cursor: pointer;
+}
+.galeryBoxImg {
+    height: 302px;
+    border: 15px solid #fff;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 7px rgba(0,0,0,.3);
+    overflow: hidden;
+}
+.galeryBoxImg img {
+    width: 100%;
+}
