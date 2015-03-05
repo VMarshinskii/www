@@ -102,6 +102,11 @@ $(document).ready(function(){
         });
     });
 
+    $(".slick-slide img").live('click', function(){
+        var img = $(this).attr("src");
+        $(".galeryBoxImg img").attr("src", img);
+    });
+
 });
 
 $(window).resize(function(){
