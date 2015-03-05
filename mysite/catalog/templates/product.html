@@ -168,10 +168,13 @@
 
         <div class="galeryBox">
             <div class="galeryBoxImg">
+                <div class="cart-price">
+                    Цена: <span>{{ product.price }} P</span>, {{ product.year }}
+                </div>
                 <img src="/{{ product.images }}">
             </div>
             <div class="your-class">
-              <div><img src="/{{ product.images }}"></div>
+              <div class="slick-slide-active"><img src="/{{ product.images }}"></div>
               {% for img in images %}
               <div><img src="/{{ img.image }}"></div>
               {% endfor %}

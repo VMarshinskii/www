@@ -1159,7 +1159,7 @@ li.active a{ text-decoration:underline;}
     height: 80px;
     border: 2px solid #eee;
 }
-.slick-slide:hover {
+.slick-slide:hover, .slick-slide-active {
     border: 2px solid #24aa98;
 }
 .slick-slide img {
@@ -1173,6 +1173,7 @@ li.active a{ text-decoration:underline;}
     border-radius: 6px;
     box-shadow: 0 2px 7px rgba(0,0,0,.3);
     overflow: hidden;
+    position: relative;
 }
 .galeryBoxImg img {
     height: 100%;
