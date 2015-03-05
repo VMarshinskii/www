@@ -1145,7 +1145,7 @@ li.active a{ text-decoration:underline;}
     opacity: 0.6;
 }
 .your-class button:hover {
-    opacity: 1;
+    opacity: 0.9;
 }
 button.slick-prev {
     left: 0;

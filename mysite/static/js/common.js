@@ -105,6 +105,8 @@ $(document).ready(function(){
     $(".slick-slide img").live('click', function(){
         var img = $(this).attr("src");
         $(".galeryBoxImg img").attr("src", img);
+        $(".slick-slide-active").removeClass("slick-slide-active");
+        $(this).addClass("slick-slide-active");
     });
 
 });
