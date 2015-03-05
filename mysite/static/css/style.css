@@ -1124,6 +1124,7 @@ li.active a{ text-decoration:underline;}
 .galeryBox {
     width: 400px;
     margin: 50px auto;
+    position: relative;
 }
 .your-class	{
     width: 400px;
@@ -1174,7 +1175,6 @@ button.slick-next {
     border-radius: 6px;
     box-shadow: 0 2px 7px rgba(0,0,0,.3);
     overflow: hidden;
-    position: relative;
 }
 .galeryBoxImg img {
     height: 100%;
