@@ -1156,7 +1156,6 @@ li.active a{ text-decoration:underline;}
 .slick-slide {
     margin: 5px;
     overflow: hidden;
-    background: #0000ff;
     height: 80px;
     border: 2px solid #eee;
 }
@@ -1164,7 +1163,7 @@ li.active a{ text-decoration:underline;}
     border: 2px solid #24aa98;
 }
 .slick-slide img {
-    width: 100%;
+    height: 100%;
     cursor: pointer;
 }
 .galeryBoxImg {
@@ -1176,5 +1175,5 @@ li.active a{ text-decoration:underline;}
     overflow: hidden;
 }
 .galeryBoxImg img {
-    width: 100%;
+    height: 100%;
 }
