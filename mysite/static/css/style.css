@@ -1142,16 +1142,16 @@ li.active a{ text-decoration:underline;}
     border: none;
     outline: none;
     cursor: pointer;
-    opacity: 0.8;
+    opacity: 0.6;
 }
 .your-class button:hover {
     opacity: 1;
 }
-.slick-prev {
+button.slick-prev {
     left: 0;
     background: url(../images/strel.png) no-repeat -33px -33px;
 }
-.slick-next {
+button.slick-next {
     right: 0;
 }
 .slick-slide {
